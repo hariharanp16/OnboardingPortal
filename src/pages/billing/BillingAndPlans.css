@@ -1,0 +1,55 @@
+.plan-container {
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 20px;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.plan-container input[type="checkbox"] {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+/* Add a class for active state */
+.plan-container.active {
+    background-color: #e9f5e9;
+    /* Highlight color */
+}
+
+.billing-table th {
+    background-color: #f8f9fa;
+}
+
+.billing-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.status-paid {
+    color: #007bff;
+    cursor: pointer;
+}
+
+.action-download {
+    color: #000;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+table td {
+    font-size: 18px;
+    /* Increase font size */
+    padding: 10px;
+
+}
+
+.tabs-container {
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+    padding: 1rem;
+}

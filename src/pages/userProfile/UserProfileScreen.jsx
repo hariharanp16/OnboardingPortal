@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import InputField from "../../common/input/Input";
 import ButtonComponent from "../../common/button/ButtonComponent";
-
+import CountrySelect from "react-bootstrap-country-select";
+import "react-bootstrap-country-select/dist/react-bootstrap-country-select.css";
 const UserProfileScreen = () => {
+  const [selectedCountry, setSelectedCountry] = useState(null);
+
   const [coverPhoto, setCoverPhoto] = useState(
     "https://via.placeholder.com/800x200"
   );
@@ -141,7 +144,6 @@ const UserProfileScreen = () => {
                   required={true}
                 ></InputField>
               </div>
-
               <div class="col-md-4 mb-3">
                 <label for="role" class="form-label">
                   Role
@@ -154,6 +156,18 @@ const UserProfileScreen = () => {
                   <option value="Developer">Developer</option>
                   <option value="Designer">Designer</option>
                 </select>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="Country" class="form-label">
+                  Country
+                </label>
+                <CountrySelect
+                  value={selectedCountry}
+                  onChange={setSelectedCountry}
+                  countryLabelFormatter={(country) =>
+                    `${country.name} (${country.alpha2})`
+                  }
+                />
               </div>
             </div>
             <div class="row">
@@ -169,6 +183,7 @@ const UserProfileScreen = () => {
                 </select>
               </div>
             </div>
+
             <ButtonComponent
               btnClass={"btn btn-primary"}
               btnName={"Save Changes"}

@@ -111,12 +111,28 @@ const PortalForm = () => {
 
   return (
     <>
+      <ul className="list-description">
+        <li>
+          Enter the credentials and brand names/Property ID of the Marketplace
+          and Digital Spends portals highlighted in the section field and click
+          on Build Connection button
+        </li>
+        <li>
+          Enter the social handle names and brand names of the social portals
+          highlighted in the section field and click on Build Connection button
+        </li>
+        <li>Once the connection is build for any section , click on save.</li>
+        <li>
+          to change or modify any portal credentials , please go to database
+          section and click on remove button
+        </li>
+      </ul>
       {marketplaceRow.map((row) => (
-        <div className="row" key={row.id}>
+        <div className="row mb-3" key={row.id}>
           <div className="col-12">
-            <h4>Marketplace</h4>
+            <h4 className="mb-0">Marketplace</h4>
           </div>
-          <div className="col">
+          <div className="col-3">
             {row.label && <label>{row.label}</label>}
             <input
               type="text"
@@ -129,7 +145,7 @@ const PortalForm = () => {
               required
             />
           </div>
-          <div className="col">
+          <div className="col-3">
             {row.label && <label>{row.label}</label>}
             <input
               type="text"
@@ -142,7 +158,7 @@ const PortalForm = () => {
               required
             />
           </div>
-          <div className="col">
+          <div className="col-2">
             {row.label && <label>{row.label}</label>}
             <input
               type="password"
@@ -155,7 +171,7 @@ const PortalForm = () => {
               required
             />
           </div>
-          <div className="col">
+          <div className="col-2">
             {row.label && <label>{row.label}</label>}
             <input
               type="text"
@@ -164,35 +180,29 @@ const PortalForm = () => {
               onChange={(e) =>
                 handleInputChange(row.id, "brandNames", e.target.value)
               }
-              placeholder={row.label || "Enter Brand Names"}
+              placeholder={row.label || "Enter Property ID"}
               required
             />
           </div>
-          <div className="col">
-            <button
-              type="button"
-              className="btn btn-primary me-2"
-              onClick={() => handleAddMarketPlaceRow(row.id)}
-            >
-              +
-            </button>
-            <button
-              type="button"
-              className="btn btn-danger"
-              onClick={() => handleRemoveMarketPlaceRow(row.id)}
-              disabled={marketplaceRow.length === 1}
-            >
-              -
-            </button>
+          <div className="col-2">
+            <div className="action-btns-portal">
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={() => handleAddMarketPlaceRow(row.id)}
+              >
+                Build Connection
+              </button>
+            </div>
           </div>
         </div>
       ))}
       {socialWatchRow.map((row) => (
-        <div className="row" key={row.id}>
+        <div className="row mb-3" key={row.id}>
           <div className="col-12">
-            <h4>Social Watch</h4>
+            <h4 className="mb-0">Social Watch</h4>
           </div>
-          <div className="col">
+          <div className="col-3">
             {row.label && <label>{row.label}</label>}
             <input
               type="text"
@@ -205,7 +215,7 @@ const PortalForm = () => {
               required
             />
           </div>
-          <div className="col">
+          <div className="col-3">
             {row.label && <label>{row.label}</label>}
             <input
               type="text"
@@ -218,7 +228,7 @@ const PortalForm = () => {
               required
             />
           </div>
-          <div className="col">
+          <div className="col-2">
             {row.label && <label>{row.label}</label>}
             <input
               type="text"
@@ -231,7 +241,7 @@ const PortalForm = () => {
               required
             />
           </div>
-          <div className="col">
+          <div className="col-2">
             {row.label && <label>{row.label}</label>}
             <input
               type="text"
@@ -244,31 +254,25 @@ const PortalForm = () => {
               required
             />
           </div>
-          <div className="col">
-            <button
-              type="button"
-              className="btn btn-primary me-2"
-              onClick={() => handleAddSocialWatchRow(row.id)}
-            >
-              +
-            </button>
-            <button
-              type="button"
-              className="btn btn-danger"
-              onClick={() => handleRemoveSocialWatchRow(row.id)}
-              disabled={socialWatchRow.length === 1}
-            >
-              -
-            </button>
+          <div className="col-2">
+            <div className="action-btns-portal">
+              <button
+                type="button"
+                className="btn btn-primary "
+                onClick={() => handleAddSocialWatchRow(row.id)}
+              >
+                Build Connection
+              </button>
+            </div>
           </div>
         </div>
       ))}
       {digitalSpendsRow.map((row) => (
-        <div className="row" key={row.id}>
+        <div className="row mb-3" key={row.id}>
           <div className="col-12">
-            <h4>Digital Spends</h4>
+            <h4 className="mb-0">Digital Spends</h4>
           </div>
-          <div className="col">
+          <div className="col-2">
             {row.label && <label>{row.label}</label>}
             <input
               type="text"
@@ -281,7 +285,7 @@ const PortalForm = () => {
               required
             />
           </div>
-          <div className="col">
+          <div className="col-2">
             {row.label && <label>{row.label}</label>}
             <input
               type="text"
@@ -294,7 +298,7 @@ const PortalForm = () => {
               required
             />
           </div>
-          <div className="col">
+          <div className="col-2">
             {row.label && <label>{row.label}</label>}
             <input
               type="password"
@@ -307,7 +311,7 @@ const PortalForm = () => {
               required
             />
           </div>
-          <div className="col">
+          <div className="col-2">
             {row.label && <label>{row.label}</label>}
             <input
               type="text"
@@ -320,7 +324,7 @@ const PortalForm = () => {
               required
             />
           </div>
-          <div className="col">
+          <div className="col-2">
             {row.label && <label>{row.label}</label>}
             <input
               type="text"
@@ -329,35 +333,29 @@ const PortalForm = () => {
               onChange={(e) =>
                 handleInputChange(row.id, "brandNames", e.target.value)
               }
-              placeholder={row.label || "Enter Brand Names"}
+              placeholder={row.label || "Enter Property ID"}
               required
             />
           </div>
-          <div className="col">
-            <button
-              type="button"
-              className="btn btn-primary me-2"
-              onClick={() => handleAddDigitalSpendsRow(row.id)}
-            >
-              +
-            </button>
-            <button
-              type="button"
-              className="btn btn-danger"
-              onClick={() => handleRemoveSocialWatchRow(row.id)}
-              disabled={digitalSpendsRow.length === 1}
-            >
-              -
-            </button>
+          <div className="col-2">
+            <div className="action-btns-portal">
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={() => handleRemoveSocialWatchRow(row.id)}
+              >
+                Build Connection
+              </button>
+            </div>
           </div>
         </div>
       ))}
       {organicRow.map((row) => (
-        <div className="row" key={row.id}>
+        <div className="row mb-3" key={row.id}>
           <div className="col-12">
-            <h4>Organic Performance</h4>
+            <h4 className="mb-0">Organic Performance</h4>
           </div>
-          <div className="col">
+          <div className="col-5">
             {row.label && <label>{row.label}</label>}
             <input
               type="text"
@@ -370,7 +368,7 @@ const PortalForm = () => {
               required
             />
           </div>
-          <div className="col">
+          <div className="col-5">
             {row.label && <label>{row.label}</label>}
             <input
               type="text"
@@ -384,29 +382,23 @@ const PortalForm = () => {
             />
           </div>
 
-          <div className="col">
-            <button
-              type="button"
-              className="btn btn-primary me-2"
-              onClick={() => handleAddDigitalSpendsRow(row.id)}
-            >
-              +
-            </button>
-            <button
-              type="button"
-              className="btn btn-danger"
-              onClick={() => handleRemoveSocialWatchRow(row.id)}
-              disabled={organicRow.length === 1}
-            >
-              -
-            </button>
+          <div className="col-2">
+            <div className="action-btns-portal">
+              <button
+                type="button"
+                className="btn btn-primary me-2"
+                onClick={() => handleAddDigitalSpendsRow(row.id)}
+              >
+                Build Connection
+              </button>
+            </div>
           </div>
         </div>
       ))}
 
       <ButtonComponent
         btnClass={"btn btn-primary"}
-        btnName={"Submit All"}
+        btnName={"Save The Details"}
         onClick={handleSubmit}
       ></ButtonComponent>
     </>

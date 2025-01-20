@@ -4,15 +4,22 @@
     padding: 20px;
     position: relative;
     transition: background-color 0.3s ease;
+    height: 100%;
+    background-color: #fff;
 }
-
+.plan-container.active {
+    background-color: #007bff;
+}
 .plan-container input[type="checkbox"] {
     position: absolute;
     top: 15px;
     right: 15px;
     width: 20px;
     height: 20px;
+    padding: 15px;
     border-radius: 50%;
+    aspect-ratio: 1;
+    display: flex;
 }
 
 /* Add a class for active state */

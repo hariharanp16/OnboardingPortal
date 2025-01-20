@@ -2,6 +2,9 @@ import React from "react";
 import "./BillingAndPlans.css";
 
 const BillingAndPlans = () => {
+  const handleUpgradePlans = () => {
+    window.open("https://www.kieverse.ai/pricing.html", "_blank");
+  };
   return (
     <>
       <div class="main-container">
@@ -9,11 +12,12 @@ const BillingAndPlans = () => {
           <div class=" my-2">
             <div class="row text-start g-4">
               <div class="col-md-4">
-                <div class="plan-container" id="basic-plan">
+                <div class="plan-container active" id="basic-plan">
                   <input
                     type="checkbox"
                     class="form-check-input"
                     onclick="toggleBackground(this)"
+                    checked
                   />
                   <div class="content">
                     <h3>Basic Plan</h3>
@@ -53,7 +57,10 @@ const BillingAndPlans = () => {
                       <li>Priority chat and email support</li>
                     </ul>
                     <div class="d-flex justify-content-center">
-                      <button class="btn btn-danger text-center">
+                      <button
+                        class="btn btn-danger text-center"
+                        onclick={handleUpgradePlans}
+                      >
                         Upgrade now
                       </button>
                     </div>
@@ -82,7 +89,10 @@ const BillingAndPlans = () => {
                       <li>Priority chat and email support</li>
                     </ul>
                     <div class="d-flex justify-content-center">
-                      <button class="btn btn-danger text-center">
+                      <button
+                        class="btn btn-danger text-center"
+                        onclick={handleUpgradePlans}
+                      >
                         Upgrade now
                       </button>
                     </div>

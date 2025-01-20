@@ -1,87 +1,104 @@
 import React, { useState } from "react";
 import InputField from "../../common/input/Input";
 import ButtonComponent from "../../common/button/ButtonComponent";
+import MultiSelectDropdown from "../../components/MultiSelectDropdown/MultiSelectDropdown";
 
 const SectionsForm = () => {
-  const initialRows = [
-    { id: 1, label: "Marketplace", value: "", checked: false },
-    { id: 2, label: "Category", value: "", checked: false },
-    { id: 3, label: "Sub-Category", value: "", checked: false },
-    { id: 4, label: "Brand", value: "", checked: false },
-  ];
+  const [marketplace, setMarketplace] = useState([]);
+  const [selectedMarketplace, setSelectedMarketplace] = useState([]);
+  const [socialwatch, setSocialwatch] = useState([]);
+  const [selectedSocialwatch, setSelectedSocialwatch] = useState([]);
+  const [digitalSpends, setDigitalSpends] = useState([]);
+  const [selectedDigitalSpends, setSelectedDigitalSpends] = useState([]);
+  const [websitePerformance, setWebsitePerformance] = useState([]);
+  const [selectedWebsitePerformance, setSelectedWebsitePerformance] = useState(
+    []
+  );
 
-  const [rows, setRows] = useState(initialRows);
-
-  // Add a new row below the clicked row
-  const handleAddRow = (index) => {
-    const newRow = {
-      id: new Date().getTime(), // Unique ID
-      label: "", // No label for new rows
-      value: "",
-      checked: false,
-    };
-
-    const updatedRows = [...rows];
-    updatedRows.splice(index + 1, 0, newRow); // Insert the new row below the current row
-    setRows(updatedRows);
+  const handleSectionSubmit = () => {
+    alert("Submit clicked");
   };
-
-  // Remove a specific row
-  const handleRemoveRow = (id) => {
-    if (rows.length > 1) {
-      setRows(rows.filter((row) => row.id !== id));
-    }
+  const handleMarketplace = () => {
+    alert("Submit clicked");
   };
-
-  // Update a row's value or checkbox
-  const handleRowChange = (id, field, value) => {
-    const updatedRows = rows.map((row) =>
-      row.id === id ? { ...row, [field]: value } : row
-    );
-    setRows(updatedRows);
+  const handleSocialwatch = () => {
+    alert("Submit clicked");
+  };
+  const handleDigitalSpends = () => {
+    alert("Submit clicked");
+  };
+  const handleWebsitePerformance = () => {
+    alert("Submit clicked");
   };
 
   return (
     <>
-      {rows.map((row, index) => (
-        <div key={row.id} className="row align-items-center mb-3">
-          <div className="col-md-10">
-            {row.label && <label>{row.label}</label>}
-            <input
-              type="text"
-              className="form-control"
-              value={row.value}
-              onChange={(e) => handleRowChange(row.id, "value", e.target.value)}
-              placeholder={row.label || "Enter value"}
-              required
-            />
-          </div>
-
-          <div className="col-md-2">
-            <input
-              type="checkbox"
-              checked={row.checked}
-              onChange={(e) =>
-                handleRowChange(row.id, "checked", e.target.checked)
-              }
-            />
-            <button
-              type="button"
-              className="btn btn-primary me-2"
-              onClick={() => handleAddRow(index)}
-            >
-              +
-            </button>
-            <button
-              type="button"
-              className="btn btn-danger"
-              onClick={() => handleRemoveRow(row.id)}
-            >
-              -
-            </button>
+      <div className="row align-items-center mb-3">
+        <div className="col-12">
+          <ul className="list-description">
+            <li>
+              Marketplaces refers to Ecommerce and Qcommerce portals list. you
+              can select more than 1 and provide credential details in the
+              Portal Details
+            </li>
+            <li>
+              Socialwatch refers to Social portals list. you can select more
+              than 1 portals and provide the social handles names in the portal
+              details.
+            </li>
+            <li>
+              Digital Spends refers to Off Paid platforms portals list like FB
+              Advertising , DV360+ Advertising etc. you can select more than 1
+              portals and provide the credentials in the portal details.
+            </li>
+            <li>
+              Once the fields are saved , please go to Database to remove the
+              brands and categories information from Brand Repository
+            </li>
+          </ul>
+        </div>
+        <div className="col-sm-12 col-md-3">
+          <MultiSelectDropdown
+            options={marketplace}
+            selectedValues={selectedMarketplace}
+            onChange={handleMarketplace}
+            placeholder="Select Marketplace"
+          />
+        </div>
+        <div className="col-sm-12 col-md-3">
+          <MultiSelectDropdown
+            options={socialwatch}
+            selectedValues={selectedSocialwatch}
+            onChange={handleSocialwatch}
+            placeholder="Select Socialwatch"
+          />
+        </div>
+        <div className="col-sm-12 col-md-3">
+          <MultiSelectDropdown
+            options={digitalSpends}
+            selectedValues={selectedDigitalSpends}
+            onChange={handleDigitalSpends}
+            placeholder="Select Digital Spends"
+          />
+        </div>
+        <div className="col-sm-12 col-md-3">
+          <MultiSelectDropdown
+            options={websitePerformance}
+            selectedValues={selectedWebsitePerformance}
+            onChange={handleWebsitePerformance}
+            placeholder="Select Website Performance"
+          />
+        </div>
+        <div className="col-12">
+          <div className="actions-buttons mt-4">
+            <ButtonComponent
+              btnClass={"btn btn-primary"}
+              btnName={"Submit"}
+              onClick={() => handleSectionSubmit()}
+            ></ButtonComponent>
           </div>
         </div>
-      ))}
+      </div>
     </>
   );
 };

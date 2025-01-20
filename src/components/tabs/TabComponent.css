@@ -15,7 +15,7 @@
 }
 
 .tab-list li {
-  margin-right: 10px;
+  margin-right: 0px;
 }
 
 .tab-list button {
@@ -30,16 +30,21 @@
 
 .tab-list .active button {
    
-  background-color: black;
+  background-color: #33A852;
   color: #fff;
+  font-weight: 600;
   padding: 1rem 1.25rem;
-  border: 1px solid black;
+  border: 1px solid #33A852;
 }
 .tab-content {
-   
+  height: calc(100vh - 320px);
   padding: 20px;
   border: 1px solid #f1f1f1;
   border-top: none;
+  overflow: auto;
+  text-align: left;
+  background: #fff;
+  border-radius: 0 12px 12px 12px;
 }
  
 

@@ -19,13 +19,13 @@ function Sidebar() {
         <li className="nav-item">
           <Link to="/toolsprofile">
             <IoGridOutline className="menu-icon" />
-            Tools Profile
+            Configurations
           </Link>
         </li>
         <li className="nav-item">
           <Link to="/brandprofile">
             <BsGraphUp className="menu-icon" />
-            Brands Profile
+            Database
           </Link>
         </li>
         <li className="nav-item">

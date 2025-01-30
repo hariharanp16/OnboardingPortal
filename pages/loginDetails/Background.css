@@ -1,0 +1,8 @@
+.canvas-container {
+    width: 100%;
+    height: calc(100vh - 82px);
+    display: flex;
+    position: absolute;
+    top:82px;
+    left: 0;
+}
